@@ -1,0 +1,36 @@
+server:
+  port: 4000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+  instance:
+    appname: booksloadbalancer
+    name: booksloadbalancer
+    
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookstore
+    username: root
+    password: MYSQL
+    maximum-pool-size: 30
+  jpa:
+    show-sql : true
+  zipkin:
+    baseurl: http://localhost:9411
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+booksservice:
+  instance: bookservice 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  
+
